@@ -69,13 +69,11 @@ export default {
                       console.log('homepage-apiUrl1',apiUrl1)
                     axios.get(apiUrl1)
                     .then(res => { this.vcounts.push(...res.data.items)
-                                  console.log('res',res)
                                   })
                   //---------------------------------------------
                   $state.loaded()
               } 
-              else{ console.log('finished')
-                    $state.complete}
+              else{ $state.complete}
             })
         }
     },

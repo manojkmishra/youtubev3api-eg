@@ -23,7 +23,7 @@ export default {
       console.log('app.js-query',this.reformatedSearchString)
       if(this.reformatedSearchString)
       {
-      this.$router.push({ path: 'about', query: { query: this.reformatedSearchString }, })
+      this.$router.push({ path: 'search', query: { query: this.reformatedSearchString }, })
       }
     },
 

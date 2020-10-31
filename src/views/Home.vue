@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <h1>home page</h1>
    <SearchResults
       v-if="videos.length > 0"
       :videos="videos"
       :vcounts="vcounts"
       :reformatedSearchString="reformatedSearchString"
     />
+
 <infinite-loading  v-if="videos.length" @infinite="infiniteHandler"></infinite-loading>
   </div>
 </template>
@@ -48,7 +48,7 @@ export default {
        if(this.videos.length>0)
        {  const {  key, nextPageToken } = this.api
           const apiUrl =`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails%2Cstatus&maxResults=20&playlistId=UU29ju8bIPH5as8OGnQzwJyA&key=${key}&pageToken=${nextPageToken}`
-          // const apiUrl = `${baseUrl}part=${part}&type=${type}&order=${order}&maxResults=${maxResults}&key=${key}&q=${q}&pageToken=${nextPageToken}`
+          
           console.log('inf load-api-url',apiUrl)
           axios
             .get(apiUrl)

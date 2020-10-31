@@ -8,20 +8,23 @@
 <script>
 import Header from './components/layout/Header.vue';
 import SearchForm from './components/SearchForm.vue';
+import About from '@/views/About.vue';
 export default {
   name: 'App',
   components: {
     Header,
-    SearchForm
+    SearchForm,About,
   },
   data(){return {reformatedSearchString: '',}},
 
   methods:{
         search (searchParams) {
       this.reformatedSearchString = searchParams.join(' ')
-      
       console.log('app.js-query',this.reformatedSearchString)
-      this.$router.push({ path: 'about', query: { query: this.reformatedSearchString }})
+      if(this.reformatedSearchString)
+      {
+      this.$router.push({ path: 'about', query: { query: this.reformatedSearchString }, })
+      }
     },
 
   }

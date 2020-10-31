@@ -20,14 +20,17 @@
 				</div>
 			</div>
 		</form>
+
 	</div>
+
 </template>
 
 <script>
+import About from '@/views/About.vue';
 export default {
 
   name: 'SearchForm',
-
+components:{About},
   data () {
     return {
     	searchString: ''
@@ -36,16 +39,19 @@ export default {
   methods: {
     parseSearchString () {
       // Trim search String
-      const trimmedSearchString = this.searchString.trim()
-console.log('searchform.vue-string=',trimmedSearchString)
-      if (trimmedSearchString != '') {
+      	const trimmedSearchString = this.searchString.trim()
+		console.log('searchform.vue-string=',trimmedSearchString)
+      	if (trimmedSearchString != '') {
       	// Split search string
       	const searchParams = trimmedSearchString.split(/\s+/)
-      	// Emit event
+		  // Emit event
       	this.$emit('search', searchParams)
       	// Reset input
-      	this.searchString = ''
-      }
+      	//this.searchString = ''
+		  }
+		  else{
+			  this.$router.push({ path: '/'})
+		  }
     }
   }
 }

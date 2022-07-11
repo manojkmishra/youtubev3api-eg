@@ -1,9 +1,6 @@
 <template>
 	<div>
-		<a
-			
-			target="_blank"
-			:title="video.snippet.title"
+		<a target="_blank" :title="video.snippet.title" :href="'http://www.youtube.com/watch?v='+video.contentDetails.videoId"
 		>
 			<img class="card-img-top" :src="`${video.snippet.thumbnails.medium.url}`" alt="Youtube Thumbnail" />
 		</a>

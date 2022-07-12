@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<a target="_blank" :title="video.snippet.title" :href="'http://www.youtube.com/watch?v='+video.contentDetails.videoId"
+		<a target="_blank" :title="video.snippet.title"  :href="href1"
 		>
 			<img class="card-img-top" :src="`${video.snippet.thumbnails.medium.url}`" alt="Youtube Thumbnail" />
 		</a>
@@ -21,8 +21,9 @@
 export default {
 
   name: 'VideoGridItem',
-  props: [ 'video','vcounts'],
+  props: [ 'video','vcounts','href1'],
   computed:{
+
 	  	vc(){
 			  if(this.vcounts && this.vcounts.length>0){
 				  //console.log('vgriditem-vcount',this.vcounts)

@@ -5,7 +5,10 @@
 				v-for="video in videos"
 				class="card"
 			>
-				<VideoGridItem :video="video" :vcounts="vcounts" />
+			
+				<VideoGridItem v-if="video.contentDetails" :video="video" :vcounts="vcounts" :href1="video.contentDetails.videoId"  />
+			<VideoGridItem v-else :video="video" :vcounts="vcounts" :href1="video.id.videoId"  />
+			
 			</div>
 		</div>
 
@@ -23,7 +26,7 @@ export default {
   	VideoGridItem
   },
   data () {
-    return {
+    return { href1:'',
     	title: 'Search Results',
     	displayMode: 'grid'
     }
